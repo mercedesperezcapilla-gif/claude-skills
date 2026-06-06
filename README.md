@@ -40,6 +40,7 @@ Skills for the work of building software, not just talking about it.
 | Skill | What it does | Try saying |
 | --- | --- | --- |
 | [doc-sync](skills/doc-sync) | Rebuilds your status or progress doc from what's actually in the repo, and flags (rather than rewrites) anything that's gone stale in your vision or architecture docs. Keeps the writing honest: built isn't deployed, committed isn't merged. Works in any codebase. | "Sync the docs with the code" |
+| [mercedes-lab-update](skills/mercedes-lab-update) | Keeps Claude Code teaching content (a course, tutorial, or internal guide) factually correct against Anthropic's live docs. Checks every command, convention, MCP package and model id against the source, flags drift and filler, and returns the safe fixes. Built to maintain my own AI automation course; works on any Claude Code content. | "Validate my Claude Code course against the docs" |
 
 ---
 
