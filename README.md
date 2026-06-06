@@ -33,6 +33,16 @@ The two skills I built while making an AI automation course with Claude Code. Th
 
 ---
 
+## Engineering skills
+
+Skills for the work of building software, not just talking about it.
+
+| Skill | What it does | Try saying |
+| --- | --- | --- |
+| [doc-sync](skills/doc-sync) | Keeps a project's north-star docs honest: regenerates a STATUS/snapshot doc from live repo facts, and flags — never silently rewrites — drift in curated vision/architecture prose. Baked-in honesty bar: built ≠ deployed, committed ≠ merged, wired ≠ working. Works in any codebase. | "Sync the docs with the code" |
+
+---
+
 ## How to install
 
 ### Claude Code (works for every skill)
