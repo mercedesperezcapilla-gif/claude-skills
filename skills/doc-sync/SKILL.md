@@ -53,7 +53,11 @@ snapshot vs curated and offer to write a `.doc-sync.json`.
 2. **Inline markers** — a doc containing `<!-- doc-sync: snapshot -->` near the top is
    treated as a snapshot; `<!-- doc-sync: curated -->` as curated.
 3. **Defaults** — `STATUS.md` / `PROGRESS.md` are snapshot; `VISION*`, `ARCHITECTURE*`,
-   `DESIGN*`, `README*` are curated.
+   `DESIGN*`, `PRD*`, `SPEC*`, `README*` are curated. A PRD or spec is a special case
+   of curated: it's a *proposal* that turns true as the project gets built, so flag
+   when its stated status (e.g. "not started", a build-order step, a `Status:` line)
+   no longer matches what's shipped — and reconcile it with the snapshot doc — but
+   propose the edit rather than rewriting the spec.
 
 ## Workflow
 
