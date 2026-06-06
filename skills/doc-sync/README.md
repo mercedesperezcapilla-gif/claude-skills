@@ -1,21 +1,21 @@
 # doc-sync
 
-Keep a project's north-star docs honest and in sync with the actual repo — without a
-bot quietly mangling your best prose.
+Docs rot because you write them once and then edit them by hand, badly, when you
+remember to. doc-sync keeps them honest with one rule: regenerate the parts that are
+just facts, and leave the writing to you.
 
-Documentation rots because it's written once and edited by hand. `doc-sync` fixes that
-with one rule: **automate the snapshot, human-curate the narrative.**
+Two kinds of doc, treated differently:
 
-- **Snapshot docs** (a `STATUS.md`, `PROGRESS.md`, a "current state" section) answer
-  *"what exists right now?"*. They decay every session, so doc-sync **regenerates**
-  them from live repo facts — registered components, git branch/merge state,
-  build-phase ticks, last-updated date.
-- **Curated docs** (vision / "why", architecture / "how", README narrative) are
-  deliberate prose. doc-sync **never rewrites them** — it only *flags* drift and
-  proposes edits for you to approve.
+- Status and progress files answer "what's true right now?", and that changes every
+  session. doc-sync rebuilds these from the repo itself: what's registered in the
+  code, which branches are merged, how far the build has got, today's date.
+- Vision and architecture docs are writing, not data. doc-sync won't touch the prose.
+  It tells you what's gone out of date and proposes the edit; you decide.
 
-Baked in is a non-negotiable **honesty bar**: *built ≠ deployed*, *committed ≠ merged*,
-*wired ≠ working ≠ shipped*. A status doc you can trust beats one that rounds up.
+It also holds a line on honesty, because a status doc that rounds up is worse than no
+status doc at all. Built isn't deployed. Committed isn't merged. Wired isn't working,
+and working isn't shipped. If a claim isn't backed by something it found in the repo,
+it softens it or drops it.
 
 ## Install
 

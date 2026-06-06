@@ -1,16 +1,12 @@
 ---
 name: doc-sync
 description: >
-  Keeps a project's "north-star" documentation honest and in sync with the actual
-  repository. Regenerates SNAPSHOT docs (a STATUS / PROGRESS / "current state" file)
-  from live repo facts — registered modules, git branch and merge state, build-phase
-  ticks, last-updated date — and FLAGS, never silently rewrites, drift in CURATED
-  narrative docs (vision / architecture / design). Make sure to use this skill
-  whenever the user wants to update, refresh, or sync project docs; mentions a
-  STATUS / PROGRESS / "where are we" file; asks "are the docs up to date" or notices
-  docs drifting from the code; or has just merged branches, finished a feature, or
-  changed the build phases — even if they don't say the word "doc-sync". Works in any
-  codebase and any language.
+  Keeps your project docs honest about what the code actually does. It rebuilds the
+  status or progress file from real facts (what's registered in the code, which
+  branches are merged, how far the build has really got, today's date), and for the
+  vision or architecture docs it points out what's gone stale and lets you approve the
+  change instead of rewriting your prose. Good for when you've merged a few branches,
+  shipped a feature, or just suspect the status file is lying. Works in any codebase.
 author: Mercedes Perez-Capilla
 ---
 

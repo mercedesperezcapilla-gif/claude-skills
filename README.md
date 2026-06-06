@@ -39,7 +39,7 @@ Skills for the work of building software, not just talking about it.
 
 | Skill | What it does | Try saying |
 | --- | --- | --- |
-| [doc-sync](skills/doc-sync) | Keeps a project's north-star docs honest: regenerates a STATUS/snapshot doc from live repo facts, and flags — never silently rewrites — drift in curated vision/architecture prose. Baked-in honesty bar: built ≠ deployed, committed ≠ merged, wired ≠ working. Works in any codebase. | "Sync the docs with the code" |
+| [doc-sync](skills/doc-sync) | Rebuilds your status or progress doc from what's actually in the repo, and flags (rather than rewrites) anything that's gone stale in your vision or architecture docs. Keeps the writing honest: built isn't deployed, committed isn't merged. Works in any codebase. | "Sync the docs with the code" |
 
 ---
 
