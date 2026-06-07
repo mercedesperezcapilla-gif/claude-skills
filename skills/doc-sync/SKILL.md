@@ -87,11 +87,21 @@ table still match what's registered? Do the phases agree? **List the specific
 discrepancies and proposed edits, then ask before applying any.** Apply only what the
 user approves.
 
-### 4. Land the changes
+### 4. Refresh exported twins
 
-Commit the snapshot refresh (and any approved curated edits). Follow the repo's own
-workflow — match its branch/PR conventions; don't push if the project protects its
-default branch and the user hasn't asked.
+If a doc has an exported version generated from it — a PDF, an HTML page, a slide
+deck — a stale export is as misleading as a stale doc. After the source changes,
+regenerate the twin so the two match. Use the project's own build command if it has
+one (e.g. a `docs/md2pdf.py`, a `make docs`, a pandoc invocation); if it doesn't,
+flag the exports that are now out of date rather than guessing at a tool. Don't
+regenerate a twin for the snapshot doc unless the project clearly publishes one —
+snapshots churn, and a PDF of a thing that changes every session is just noise.
+
+### 5. Land the changes
+
+Commit the snapshot refresh, any approved curated edits, and the regenerated
+exports. Follow the repo's own workflow — match its branch/PR conventions; don't
+push if the project protects its default branch and the user hasn't asked.
 
 ## The honesty bar (non-negotiable)
 
