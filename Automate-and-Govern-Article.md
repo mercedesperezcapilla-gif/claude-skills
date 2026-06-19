@@ -2,7 +2,7 @@
 
 ### The three skills I built for the work that happens around the build
 
-*By Mercedes Perez-Capilla, RepresentAI Financial Services Group*
+*By Mercedes Perez-Capilla*
 
 ---
 
@@ -148,4 +148,4 @@ Here's the part I didn't plan: two of the skills I built for the course outlived
 
 All three are open and free, at [github.com/mercedesperezcapilla-gif/claude-skills](https://github.com/mercedesperezcapilla-gif/claude-skills).
 
-*Mercedes Perez-Capilla is a Product Lead for Transformation and AI Adoption in financial services. She is a Claude Certified Architect candidate, an IAPP AIGP candidate, and part of the Financial Services group at RepresentAI.*
+*Mercedes Perez-Capilla is a Product Lead for Transformation and AI Adoption in financial services. She is a Claude Certified Architect candidate and an IAPP AIGP candidate.*
