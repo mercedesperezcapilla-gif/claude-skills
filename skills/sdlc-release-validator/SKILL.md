@@ -10,7 +10,7 @@ description: >
   Use before a release to check readiness, after a release to confirm completeness,
   or during a review to evidence what was done.
 author: Mercedes Perez-Capilla
-version: "1.0"
+version: "1.1"
 license: MIT
 tags: [sdlc, release-management, change-management, financial-services, governance, audit]
 ---
@@ -34,9 +34,17 @@ If the user says "validate this release" or "run the SDLC check" with no further
 2. Release date and environment (UAT / Production)
 3. System or component affected
 
+**Also ask:** What type of change is this?
+- **Minor** — low risk, small scope, well-understood (some gates may be waivable)
+- **Standard** — planned release following full SDLC process (all gates apply)
+- **Significant** — affects regulatory reporting, risk calculations, client-facing outputs, or external messaging (all gates mandatory, no waivers without documented approval)
+- **Emergency** — hotfix under time pressure (document which gates were skipped and why)
+
+Change type determines which gates are mandatory vs. waivable. State the type at the top of the report.
+
 ---
 
-## The Eleven Gates
+## The Thirteen Gates
 
 Work through these in order. For each gate, determine the status from the information provided — only ask a follow-up question if the gate cannot be assessed from what has been given.
 
@@ -181,11 +189,43 @@ Work through these in order. For each gate, determine the status from the inform
 - Were any manual interventions made during or after the release window (e.g. config changes, data fixes, process overrides)?
 - Were any out-of-hours decisions taken that were not part of the original plan?
 - Is each exception documented, attributed to a named person, and approved?
+- **Integration and message flow decisions:** if any message feeds, API connections, or system integrations were enabled, disabled, or modified during the release window — is there a record of who made the call, what triggered it, and who approved it? Decisions made under time pressure (e.g. re-enabling a feed the morning after a release) are especially likely to go undocumented — flag these explicitly.
 
 **Pass:** No exceptions, or all exceptions documented, attributed, and approved.
 **Partial:** Exceptions occurred but documentation is incomplete.
 **Fail:** Exceptions occurred with no record or approval.
 **N/A:** Release was clean with no interventions required.
+
+---
+
+### Gate 12 — Rollback Plan
+
+**What to check:**
+- Was a rollback/backout procedure defined before the release went live?
+- Is it documented — steps, owner, estimated time to execute?
+- Who has authority to invoke it, and how is that decision made?
+- If the rollback was invoked, is that documented separately with the reason?
+
+**Pass:** Rollback plan documented with named owner and steps, defined before release.
+**Partial:** A rollback approach exists but is informal, undocumented, or was defined after the release started.
+**Fail:** No rollback plan. "We'd figure it out" is not a plan.
+**N/A:** Change is fully reversible by design with no specific procedure needed (document why).
+
+> Auditors and regulators will always ask: "What was your backout plan?" If it isn't documented before the release, it doesn't count.
+
+---
+
+### Gate 13 — Impact Communication
+
+**What to check:**
+- Were all upstream and downstream teams notified before the release window?
+- If the change affects client-facing outputs, counterparty data, or regulatory reporting — was the relevant risk or compliance team notified (not just included in UAT)?
+- Is there a record of who was told, when, and through what channel?
+
+**Pass:** All impacted parties notified before release, with a record.
+**Partial:** Some teams notified but not all, or notification happened after the release started.
+**Fail:** Change went to production without affected teams being informed.
+**N/A:** Change is fully internal with no downstream impact (document why).
 
 ---
 
@@ -208,13 +248,14 @@ Gap (if any): [What is missing or incomplete]
 Action required: [What needs to happen to close the gap — only if Partial or Fail]
 ```
 
-Follow the eleven gates in order. Do not skip a gate — if there is no information, mark it as ❌ Fail and state what evidence is needed.
+Follow the thirteen gates in order. Do not skip a gate — if there is no information, mark it as ❌ Fail and state what evidence is needed.
 
-After the eleven gates, add a summary:
+After the thirteen gates, add a summary:
 
 ```
 ## Summary
-Gates passed:     X / 11
+Change type:      Minor | Standard | Significant | Emergency
+Gates passed:     X / 13
 Gates partial:    X
 Gates failed:     X
 Gates N/A:        X
