@@ -4,7 +4,7 @@ Free, open Claude skills for AI automation and governance. Built for highly regu
 
 > **Guidance only — not legal, compliance or regulatory advice.** These are thinking tools to help you ask better questions before the formal conversations begin. They name no specific regulation and are not a substitute for your organisation's own controls.
 
-By [@mercedesperezcapilla-gif](https://github.com/mercedesperezcapilla-gif) · Part of the [RepresentAI](https://representai.co.uk) Financial Services Group.
+By [@mercedesperezcapilla-gif](https://github.com/mercedesperezcapilla-gif)
 
 Each skill lives in `skills/<skill-name>/` and installs in the Claude app or Claude Code.
 
@@ -40,7 +40,7 @@ Skills for the work of building software, not just talking about it.
 | Skill | What it does | Try saying |
 | --- | --- | --- |
 | [doc-sync](skills/doc-sync) | Rebuilds your status or progress doc from what's actually in the repo, and flags (rather than rewrites) anything that's gone stale in your vision or architecture docs. Keeps the writing honest: built isn't deployed, committed isn't merged. Works in any codebase. | "Sync the docs with the code" |
-| [mercedes-lab-update](skills/mercedes-lab-update) | Keeps Claude Code teaching content (a course, tutorial, or internal guide) factually correct against Anthropic's live docs. Checks every command, convention, MCP package and model id against the source, flags drift and filler, and returns the safe fixes. Built to maintain my own AI automation course; works on any Claude Code content. | "Validate my Claude Code course against the docs" |
+| [claude-code-content-validator](skills/claude-code-content-validator) | Keeps Claude Code teaching content (a course, tutorial, or internal guide) factually correct against Anthropic's live docs. Checks every command, convention, MCP package and model id against the source, flags drift and filler, and returns the safe fixes. Works on any Claude Code content. | "Validate my Claude Code course against the docs" |
 
 ---
 
