@@ -65,6 +65,20 @@ Then invoke it by typing `/<skill-name>` in Claude Code, or just describe your t
 
 ---
 
+---
+
+## Agents
+
+Some skills have a companion agent that connects to Jira (or other systems via MCP) and pulls data automatically — no copy-pasting required.
+
+| Agent | What it does | Requires |
+| --- | --- | --- |
+| [sdlc-release-validator](agents/sdlc-release-validator) | Same 13-gate release validation as the skill, but give it a ticket ID and it pulls everything from Jira itself — comments, linked issues, sub-tasks, attachments. Returns the full report and sign-off block. | Jira MCP |
+
+Install an agent by copying its folder to `~/.claude/agents/`.
+
+---
+
 ## Adding more skills
 
 Each new skill gets its own folder under `skills/` with a `SKILL.md` file.
