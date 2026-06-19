@@ -4,7 +4,6 @@ description: Keeps ONE consistent character and worked example running through a
 author: Mercedes Perez-Capilla
 version: 2.0
 license: MIT
-published_via: RepresentAI
 tags: [course-design, narrative-consistency, instructional-design, examples]
 ---
 
@@ -197,4 +196,4 @@ Riley is the PRIMARY example. To show the pattern travels, offer short parallel 
 
 ---
 
-*Built by Mercedes Perez-Capilla. Part of the RepresentAI skills library. Free to use and share with attribution. Not legal, compliance or regulatory advice.*
+*Built by Mercedes Perez-Capilla. Free to use and share with attribution. Not legal, compliance or regulatory advice.*

@@ -8,7 +8,6 @@ description: >
 author: Mercedes Perez-Capilla
 version: "3.5"
 license: MIT
-published_via: RepresentAI Financial Services Group
 tags: [automation, workflow-design, AI-adoption, financial-services]
 ---
 
@@ -175,6 +174,6 @@ Do not start at stage 5.
 
 ---
 
-Built by Mercedes Perez-Capilla for the RepresentAI Financial Services Group.
+Built by Mercedes Perez-Capilla.
 Companion skill: [FS Governance Tier Checker](../fs-governance-tier-checker/).
 Free to use and share with attribution. Not legal, compliance or regulatory advice.

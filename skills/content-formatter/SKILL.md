@@ -4,7 +4,6 @@ description: Transforms dense lesson content into beautiful, web-ready, student-
 author: Mercedes Perez-Capilla
 version: 1.0
 license: MIT
-published_via: RepresentAI
 ---
 
 # Content Formatter for Claude Code Course

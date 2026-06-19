@@ -9,7 +9,6 @@ description: >
 author: Mercedes Perez-Capilla
 version: "1.1"
 license: MIT
-published_via: RepresentAI Financial Services Group
 tags: [governance, financial-services, AI-adoption, business-case, ROI, guideline]
 ---
 
@@ -189,6 +188,6 @@ Three cases, one per tier — note how the ROI logic stays constant while the go
 
 ---
 
-Built by Mercedes Perez-Capilla for the RepresentAI Financial Services Group.
+Built by Mercedes Perez-Capilla.
 Companion skills: [FS Governance Tier Checker](../fs-governance-tier-checker/) · [Automation Opportunity Finder](../automation-opportunity-finder/).
 Free to use and share with attribution. Not legal, compliance or financial advice.

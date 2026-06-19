@@ -1,5 +1,5 @@
 ---
-name: mercedes-lab-update
+name: claude-code-content-validator
 description: >
   Keeps Claude Code teaching content factually correct against Anthropic's live
   documentation. Claude Code changes fast, so any course, tutorial, lesson set, or
@@ -11,7 +11,7 @@ description: >
 author: Mercedes Perez-Capilla
 ---
 
-# mercedes-lab-update
+# Claude Code Content Validator
 
 Teaching content about a fast-moving tool rots quietly. A lesson that was correct when
 written can, months later, tell a learner to run a command that no longer exists, install

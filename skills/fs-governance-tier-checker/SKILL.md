@@ -8,7 +8,6 @@ description: >
 author: Mercedes Perez-Capilla
 version: "3.2"
 license: MIT
-published_via: RepresentAI Financial Services Group
 tags: [governance, financial-services, AI-risk, AI-adoption, guideline]
 ---
 
@@ -173,6 +172,6 @@ Always close every response with this note:
 
 ---
 
-Built by Mercedes Perez-Capilla for the RepresentAI Financial Services Group.
+Built by Mercedes Perez-Capilla.
 Companion skill: [Automation Opportunity Finder](../automation-opportunity-finder/).
 Free to use and share with attribution. Not legal, compliance or regulatory advice.
