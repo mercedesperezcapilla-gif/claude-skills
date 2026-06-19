@@ -181,13 +181,85 @@ Approved by: _____________  Role: _____________  Date: ________
 
 ---
 
-## Install
+## Installation
+
+### Prerequisites
+- [Claude Code](https://claude.ai/code) installed
+- A Jira account with API access
+- Node.js / npx available on your machine
+
+---
+
+### Step 1 — Install the agent
 
 Copy this file to your Claude Code agents directory:
+
+**Mac / Linux:**
+```bash
+mkdir -p ~/.claude/agents
+cp AGENT.md ~/.claude/agents/sdlc-release-validator.md
 ```
-~/.claude/agents/sdlc-release-validator.md
+
+**Windows:**
+```powershell
+New-Item -ItemType Directory -Force "$env:USERPROFILE\.claude\agents"
+Copy-Item AGENT.md "$env:USERPROFILE\.claude\agents\sdlc-release-validator.md"
 ```
-Requires Jira MCP to be configured in your Claude Code settings.
+
+---
+
+### Step 2 — Generate a Jira API token
+
+1. Go to [id.atlassian.com/manage-profile/security/api-tokens](https://id.atlassian.com/manage-profile/security/api-tokens)
+2. Click **Create API token**
+3. Name it something like `claude-sdlc-validator`
+4. Copy the token — you won't see it again
+
+> If your Jira is hosted internally (not Atlassian Cloud), ask your IT team for the API endpoint and auth method instead.
+
+---
+
+### Step 3 — Configure Jira MCP in Claude Code settings
+
+Open `~/.claude/settings.json` (create it if it doesn't exist) and add:
+
+```json
+{
+  "mcpServers": {
+    "jira": {
+      "command": "npx",
+      "args": ["-y", "mcp-atlassian"],
+      "env": {
+        "JIRA_URL": "https://your-company.atlassian.net",
+        "JIRA_USERNAME": "your.email@company.com",
+        "JIRA_API_TOKEN": "your-api-token-here"
+      }
+    }
+  }
+}
+```
+
+Replace the three values with your own. If you already have other MCP servers configured, add the `"jira"` block inside the existing `"mcpServers"` object.
+
+---
+
+### Step 4 — Test it
+
+Open Claude Code and type:
+
+```
+validate [YOUR-TICKET-ID]
+```
+
+The agent should pull the ticket from Jira and return the full 13-gate report. If it can't connect, check that `JIRA_URL` and credentials are correct.
+
+---
+
+### Using the skill instead (no Jira MCP required)
+
+If you can't configure the Jira MCP (managed machine, restricted environment), use the companion skill instead. Copy-paste the Jira ticket content into Claude and it runs the same 13 gates manually.
+
+Skill: [skills/sdlc-release-validator](../../skills/sdlc-release-validator/)
 
 ---
 
