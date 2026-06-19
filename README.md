@@ -41,6 +41,7 @@ Skills for the work of building software, not just talking about it.
 | --- | --- | --- |
 | [doc-sync](skills/doc-sync) | Rebuilds your status or progress doc from what's actually in the repo, and flags (rather than rewrites) anything that's gone stale in your vision or architecture docs. Keeps the writing honest: built isn't deployed, committed isn't merged. Works in any codebase. | "Sync the docs with the code" |
 | [claude-code-content-validator](skills/claude-code-content-validator) | Keeps Claude Code teaching content (a course, tutorial, or internal guide) factually correct against Anthropic's live docs. Checks every command, convention, MCP package and model id against the source, flags drift and filler, and returns the safe fixes. Works on any Claude Code content. | "Validate my Claude Code course against the docs" |
+| [sdlc-release-validator](skills/sdlc-release-validator) | Validates that a software change has met all required SDLC gates before or after release in a regulated environment. Checks eleven gates — change record, design, code review, developer testing, independent testing, environment consistency, UAT sign-off, bug management, go/no-go, post-release validation, and exceptions. Returns a gate-by-gate status report and a structured sign-off block ready for audit. | "Validate this release" / "Is this ready for production?" |
 
 ---
 
