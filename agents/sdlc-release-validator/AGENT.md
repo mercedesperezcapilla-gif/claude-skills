@@ -96,77 +96,64 @@ Is there evidence that upstream and downstream teams were notified before the re
 
 ## Step 4: Return the Report
 
-### Section 1: Gate-by-Gate Status
+One unified output in this order:
 
 ```
-SDLC Release Validation Report
+SDLC Release Validation — [TICKET-ID]
 ────────────────────────────────────────────────────────
 Ticket:       [ID] — [Title]
 Change type:  [Minor / Standard / Significant / Emergency]
 Environment:  [UAT / Production]
 Release date: [from ticket or comments]
-Pulled from:  Jira (via MCP) — [date/time of retrieval]
+Pulled from:  Jira (via MCP) — [retrieval timestamp]
 ────────────────────────────────────────────────────────
 
-Gate 1  — Change Record             [status]
-Gate 2  — Design Agreement          [status]
-Gate 3  — Code Review               [status]
-Gate 4  — Developer Testing         [status]
-Gate 5  — Independent Testing       [status]
-Gate 6  — Environment Consistency   [status]
-Gate 7  — UAT Sign-Off              [status]
-Gate 8  — Bug Management            [status]
-Gate 9  — Go/No-Go Decision         [status]
-Gate 10 — Post-Release Validation   [status]
-Gate 11 — Exceptions / Interventions [status]
-Gate 12 — Rollback Plan             [status]
-Gate 13 — Impact Communication      [status]
+Gate 1  — Change Record              [✅ / ⚠️ / ❌ / ➖]
+Gate 2  — Design Agreement           [✅ / ⚠️ / ❌ / ➖]
+Gate 3  — Code Review                [✅ / ⚠️ / ❌ / ➖]
+Gate 4  — Developer Testing          [✅ / ⚠️ / ❌ / ➖]
+Gate 5  — Independent Testing        [✅ / ⚠️ / ❌ / ➖]
+Gate 6  — Environment Consistency    [✅ / ⚠️ / ❌ / ➖]
+Gate 7  — UAT Sign-Off               [✅ / ⚠️ / ❌ / ➖]
+Gate 8  — Bug Management             [✅ / ⚠️ / ❌ / ➖]
+Gate 9  — Go/No-Go Decision          [✅ / ⚠️ / ❌ / ➖]
+Gate 10 — Post-Release Validation    [✅ / ⚠️ / ❌ / ➖]
+Gate 11 — Exceptions / Interventions [✅ / ⚠️ / ❌ / ➖]
+Gate 12 — Rollback Plan              [✅ / ⚠️ / ❌ / ➖]
+Gate 13 — Impact Communication       [✅ / ⚠️ / ❌ / ➖]
+
+────────────────────────────────────────────────────────
+Passed: X  |  Partial: X  |  Failed: X  |  N/A: X
+
+Release readiness: READY / CONDITIONAL / NOT READY
+[One sentence on what's solid and what needs to close]
+────────────────────────────────────────────────────────
 ```
 
-For any gate that is ⚠️ Partial or ❌ Fail, add:
+For every ⚠️ Partial or ❌ Fail gate, follow immediately with:
 - **Found:** what was in Jira
 - **Gap:** what is missing
 - **Action:** what needs to happen to close it
 
-### Section 2: Summary
-
-```
-Gates passed:   X / 13
-Gates partial:  X
-Gates failed:   X
-Gates N/A:      X
-
-Release readiness: READY | CONDITIONAL | NOT READY
-```
-
-- **READY** — all Pass or N/A
-- **CONDITIONAL** — one or more Partial, with clear actions
-- **NOT READY** — one or more Fail
-
-One or two sentences on the overall picture.
-
-### Section 3: Sign-Off Block
+Then close with the sign-off block:
 
 ```
 Release Sign-Off Record
 ────────────────────────────────────────
-Ticket:               [ID — title]
-System / component:   [from ticket]
-Release date:         [from ticket]
-Environment:          [from ticket]
+Ticket:          [ID — title]
+System:          [component]
+Release date:    [date]
+Environment:     [UAT / Production]
+Validated by:    Agent — Jira MCP pull on [date]
 
-Validated by:         [agent — Jira MCP pull on {date}]
-Gates passed:         [list]
-Gates partial:        [list + agreed actions]
-Gates failed:         [list]
+Gates passed:    [list]
+Gates partial:   [list + actions]
+Gates failed:    [list]
 
-Overall status:       READY / CONDITIONAL / NOT READY
+Overall status:  READY / CONDITIONAL / NOT READY
+Notes:           [waivers, known issues, conditions]
 
-Notes:
-[Material gaps, waivers, known issues accepted]
-
-Sign-off (human):
-Approved by: _____________  Role: _____________  Date: ________
+Approved by: _______________  Role: _______________  Date: ________
 ```
 
 ---
