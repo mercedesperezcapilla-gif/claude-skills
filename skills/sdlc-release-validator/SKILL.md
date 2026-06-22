@@ -2,14 +2,15 @@
 name: sdlc-release-validator
 description: >
   Validates that a software change has met all required SDLC gates before or after
-  release in a regulated financial services environment. Checks 13 gates — change record,
+  release in a regulated financial services environment. Checks 14 gates — change record,
   design agreement, code review, developer testing, independent testing, environment
   consistency, UAT sign-off, bug management, go/no-go, post-release validation, exceptions
-  and manual interventions, rollback plan, and impact communication. Returns a gate-by-gate
-  status report and a structured sign-off block ready for audit. Use before a release to
-  check readiness, after to confirm completeness, or during a review to evidence what was done.
+  and manual interventions, rollback plan, impact communication, and security review.
+  Returns a gate-by-gate status report and a structured sign-off block ready for audit.
+  Use before a release to check readiness, after to confirm completeness, or during a
+  review to evidence what was done.
 author: Mercedes Perez-Capilla
-version: "1.2"
+version: "1.3"
 license: MIT
 tags: [sdlc, release-management, change-management, financial-services, governance, audit]
 ---
@@ -37,7 +38,7 @@ State the change type at the top of the report.
 
 ---
 
-## Step 2 — Run the 13 gates
+## Step 2 — Run the 14 gates
 
 **Status definitions (apply consistently across all gates):**
 - ✅ **Pass** — positive evidence present and sufficient
@@ -96,6 +97,11 @@ Was a rollback procedure documented before the release — with steps, a named o
 **Gate 13 — Impact Communication**
 Were all upstream and downstream teams notified before the release window, with a record of who was told and when? For changes affecting regulatory reporting or external data flows, risk or compliance notification is a separate requirement from UAT.
 
+**Gate 14 — Security Review**
+For Significant changes touching authentication, authorisation, APIs, external data flows, or personally identifiable information: was a security review performed and documented before release? For Standard changes: were any security considerations raised during design or code review, and were they addressed? For Minor changes this gate is N/A unless the change scope touches a sensitive area.
+
+> Security review is not the same as code review. A PR approval checks whether the code is correct. A security review checks whether it is safe. They are separate controls.
+
 ---
 
 ## Step 3 — Return the report
@@ -108,7 +114,7 @@ Then summarise:
 
 ```
 Change type:       [Minor / Standard / Significant / Emergency]
-Gates passed:      X / 13
+Gates passed:      X / 14
 Gates partial:     X  →  [names + agreed actions]
 Gates failed:      X  →  [names]
 Gates N/A:         X  →  [names]
@@ -145,6 +151,40 @@ Approved by: _______________  Role: _______________  Date: ________
 ```
 
 The human signature line is intentional — automated validation supports sign-off in a regulated environment; it does not replace it.
+
+---
+
+## Worked Example — CONDITIONAL result
+
+**Change:** Risk dashboard display update — Standard release, Production, 14 June 2026
+
+```
+Gate 1  — Change Record              ✅ Ticket RISK-2241 exists, objective and scope clear
+Gate 2  — Design Agreement           ✅ Design doc linked, BA sign-off in comments
+Gate 3  — Code Review                ⚠️ PR merged but reviewer approval not formally recorded
+Gate 4  — Developer Testing          ✅ Test results attached
+Gate 5  — Independent Testing        ✅ QA executed 12 test cases, results documented
+Gate 6  — Environment Consistency    ✅ Same build v2.4.1 confirmed across dev/UAT/prod
+Gate 7  — UAT Sign-Off               ✅ Ops sign-off recorded 11 June, named approver
+Gate 8  — Bug Management             ⚠️ 2 bugs raised — one fixed, one marked resolved with no rationale
+Gate 9  — Go/No-Go Decision          ✅ Go/no-go meeting notes in ticket, 3 participants named
+Gate 10 — Post-Release Validation    ✅ Validation comment logged Friday morning
+Gate 11 — Exceptions / Interventions ➖ No interventions during release window
+Gate 12 — Rollback Plan              ❌ No rollback procedure documented in ticket or linked docs
+Gate 13 — Impact Communication       ⚠️ Downstream team notified day-of, not before release window
+Gate 14 — Security Review            ➖ Display-only change, no auth/API/data scope — N/A
+
+Gates passed:   8 / 14
+Gates partial:  3  →  Code Review, Bug Management, Impact Communication
+Gates failed:   1  →  Rollback Plan
+Gates N/A:      2  →  Exceptions, Security Review
+
+Release readiness: NOT READY
+
+Strong on testing and UAT. One hard fail — rollback plan must be documented before this
+can be signed off. Three partials to tighten: add reviewer name to PR, document the
+rationale for the resolved bug, and confirm downstream notification was received before go-live.
+```
 
 ---
 
